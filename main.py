@@ -16,7 +16,9 @@ Max_Droplets_Per_Stream = 5
 
 CSV_File_Start_Line = 6
 
-FPS = 5
+FPS = 30
+
+Input_Filename = 'example.csv'
 
 # Create nozzle grid matricies
 nozzle_grid_x_vector = np.arange(0, Nozzle_Grid_Width_mm, Nozzel_Grid_Width_Spacing)
@@ -24,6 +26,8 @@ nozzle_grid_y_vector = np.arange(0, Nozzle_Grid_Depth_mm, Nozzel_Grid_Depth_Spac
 
 nozzle_grid_x_cords, nozzle_grid_y_cords = np.meshgrid(nozzle_grid_x_vector, nozzle_grid_y_vector)
 nozzle_grid_z_cords =  np.full(nozzle_grid_x_cords.shape, Nozzle_Grid_Height_mm)
+
+print(f'SIZE OF NOZZEL GRID: {nozzle_grid_z_cords.shape}')
 
 # Plotting setup
 figure = plt.figure()
@@ -36,7 +40,7 @@ frame_interval = int((1 / FPS) * 1000)
 def read_frames():
     droplet_data = []
 
-    with open('example.csv') as csv_file:
+    with open(Input_Filename) as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         line_number = 1
@@ -51,14 +55,14 @@ def read_frames():
                     frame_index = int(row[0])
                     i = int(row[1])
                     j = int(row[2])
-                    start = int(row[3])
-                    stop = int(row[4])
+                    start = float(row[3])
+                    stop = float(row[4])
                 
                 except:
                     print(f'\nERROR: Frame incorrectly specified in CSV file (line number {line_number})')
                     return 0
                 
-                if (i < 0 or i > nozzle_grid_x_cords.shape[0]) or (j < 0 or j > nozzle_grid_x_cords.shape[1]):
+                if (i < 0 or i > nozzle_grid_z_cords.shape[1]) or (j < 0 or j > nozzle_grid_z_cords.shape[0]):
                     print(f'\nERROR: Specified nozzle does not exist (line number {line_number})')
                     return 0
                 
@@ -94,7 +98,6 @@ def init_canvas():
 
     axes.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
     axes.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
-    axes.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
 
     axes.set_xlabel('X (mm)')
     axes.set_ylabel('Y (mm)')
