@@ -11,3 +11,12 @@
 8. Write tkinter CSV file selector stuff []
 9. Write example program(s) which produce cool CSV files []
 10. Add animation save feature []
+
+## Improved solution:
+* Use Blender to generate all the CSV files. Advantages, can do the more complex visual design here easier + all the planned python stuff.
+* Use raycasting in blender to bring the 3D stuff into the rain model.
+* Still have a seperate program that can read the CSV files from other programs if people want to work in those (the same CSVs will be used as the software, hardware interchange also)
+
+### Implementation
+1. Function which generates a ray.
+2. Result of ray will return new ray recursively until no ray is resturned.
