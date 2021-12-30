@@ -49,6 +49,10 @@ def setup_scene(scene):
 
     scene_manager.draw_bounding_box(None, bpy.context)
 
+    for area in bpy.context.window.screen.areas:
+        if area.type == 'VIEW_3D':
+            area.tag_redraw()
+
 def register():
     properties.set_attributes()
     
@@ -58,6 +62,8 @@ def register():
     bpy.app.handlers.depsgraph_update_pre.append(setup_scene)
 
 def unregister():
+    bpy.app.handlers.depsgraph_update_pre.remove(droplet_generation.render_droplets)
+    
     properties.reset_attributes()
 
     for rainman_class in rainman_classes:

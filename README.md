@@ -21,3 +21,4 @@
 * Blender addon dev seems a bit dumb. Needed to create a symlink to this directory for easy addon reloading (cmd: ln -s /home/toby/Projects/cascade/rainman/ /home/toby/.config/blender/3.0/scripts/addons/rainman)
 * Bounding box working!
 * Delete overide not working in some editors.
+* All previous droplet generation code implemented and working!
