@@ -15,6 +15,7 @@ else:
     scene_manager = importlib.reload(scene_manager)
 
 import bpy
+from bpy.app.handlers import persistent
 
 bl_info = {
     'name': 'Rainman',
@@ -26,6 +27,7 @@ bl_info = {
 }
 
 rainman_classes = [
+    scene_manager.DeleteOverride,
     menu.BakeCSVOperator,
     menu.LoadCSVOperator,
     menu.DisplayConfigurationPanel,
@@ -35,14 +37,30 @@ rainman_classes = [
     menu.ActionsPanel
 ]
 
+@persistent
+def setup_scene(scene):
+    bpy.app.handlers.depsgraph_update_pre.remove(setup_scene)
+
+    try:
+        scene_manager.remove_bounding_box(None, bpy.context)
+    
+    except:
+        pass
+
+    scene_manager.draw_bounding_box(None, bpy.context)
+
 def register():
     properties.set_attributes()
     
     for rainman_class in rainman_classes:
         bpy.utils.register_class(rainman_class)
+    
+    bpy.app.handlers.depsgraph_update_pre.append(setup_scene)
 
 def unregister():
     properties.reset_attributes()
 
     for rainman_class in rainman_classes:
         bpy.utils.unregister_class(rainman_class)
+    
+    scene_manager.remove_bounding_box(None, bpy.context)

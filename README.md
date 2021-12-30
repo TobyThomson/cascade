@@ -17,9 +17,7 @@
 * Use raycasting in blender to bring the 3D stuff into the rain model.
 * Still have a seperate program that can read the CSV files from other programs if people want to work in those (the same CSVs will be used as the software, hardware interchange also)
 
-### Implementation
-1. Function which generates a ray.
-2. Result of ray will return new ray recursively until no ray is resturned.
-
 ## Notes
-1. Blender addon dev seems a bit dumb. Needed to create a symlink to this directory for easy addon reloading (cmd: ln -s /home/toby/Projects/cascade/rainman/ /home/toby/.config/blender/3.0/scripts/addons/rainman)
+* Blender addon dev seems a bit dumb. Needed to create a symlink to this directory for easy addon reloading (cmd: ln -s /home/toby/Projects/cascade/rainman/ /home/toby/.config/blender/3.0/scripts/addons/rainman)
+* Bounding box working!
+* Delete overide not working in some editors.
