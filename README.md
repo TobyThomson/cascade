@@ -20,3 +20,6 @@
 ### Implementation
 1. Function which generates a ray.
 2. Result of ray will return new ray recursively until no ray is resturned.
+
+## Notes
+1. Blender addon dev seems a bit dumb. Needed to create a symlink to this directory for easy addon reloading (cmd: ln -s /home/toby/Projects/cascade/rainman/ /home/toby/.config/blender/3.0/scripts/addons/rainman)
