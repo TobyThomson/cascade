@@ -20,7 +20,6 @@ rendering = [
     ('rendering_raycast_depth_multiplier', bpy.props.FloatProperty(name='Raycast Depth Multiplier', default=2, min=0)),
     ('rendering_droplet_colour', bpy.props.FloatVectorProperty(name='Droplet Colour', size=4, subtype="COLOR", default=(0.0, 0.0, 1.0, 0.7))),
     ('rendering_bounding_box', bpy.props.BoolProperty(name='Show Display Bounding Box?', default=True, update=scene_manager.toggle_bounding_box_visible)),
-    ('rendering_streams', bpy.props.BoolProperty(name='Show Display Streams?', default=False)),
     ('rendering_live', bpy.props.BoolProperty(name='Live Update?', default=False, update=droplet_generation.register_droplet_handler))
 ]
 
