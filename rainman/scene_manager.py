@@ -35,7 +35,6 @@ def draw_bounding_box(self, context):
     depth = context.scene.display_depth_mm
     height = context.scene.display_height_mm
 
-    # Draw
     verticies = [(width, depth, 0.0),
                 (width, 0.0, 0.0),
                 (0.0, 0.0, 0.0),
@@ -56,7 +55,7 @@ def draw_bounding_box(self, context):
             (4, 0),
             (7, 3),
             (6, 2),
-            (5, 1),]
+            (5, 1)]
 
     mesh = bpy.data.meshes.new(bounding_box_object_name)
     mesh.from_pydata(verticies, edges, [])
