@@ -1,5 +1,5 @@
 # Cascade - A 3D Water Droplet Display
-Cascade is a 3D water droplet display inspired by the work of Unit 9 and their "rain rig", with a focus on creating a similar effect without the need for a camera. This repository contains all the components of cascade's design and any associated tools. Notes on the development process can be found on [my website](www.tobythomson.co.uk).
+Cascade is a 3D water droplet display inspired by the work of Unit 9 and their "rain rig", with a focus on creating a similar effect without the need for a camera. This repository contains all the components of cascade's design and any associated tools. Notes on the development process can be found on [my website](https://www.tobythomson.co.uk).
 
 ## Repository Components
 1. visualizer/: The source code for the blender plugin which visualizes the effect of the display. Used to inform cascade's mechanical requirements and generate the intial "graphics"
