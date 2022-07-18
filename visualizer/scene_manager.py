@@ -1,6 +1,7 @@
 import bpy
 import bmesh
 from bpy.props import BoolProperty
+import math
 
 bounding_box_object_name = 'cascade_visualizer_bounding_box'
 
@@ -26,9 +27,22 @@ class DeleteOverride(bpy.types.Operator):
 
 def redraw_bounding_box(self, context):
     remove_bounding_box(self, context)
+    
     draw_bounding_box(self, context)
+    update_nozzle_count(self, context)
 
     return None
+
+def update_nozzle_count(self, context):
+    width = context.scene.display_width_mm
+    depth = context.scene.display_depth_mm
+    depth_nozzle_spacing = context.scene.display_depth_nozzle_spacing_mm
+    width_nozzle_spacing = context.scene.display_width_nozzle_spacing_mm
+
+    depth_nozzle_count = math.floor(depth / depth_nozzle_spacing)
+    width_nozzle_count = math.floor(width / width_nozzle_spacing)
+
+    context.scene.nozzle_count = depth_nozzle_count * width_nozzle_count
 
 def draw_bounding_box(self, context):
     width = context.scene.display_width_mm

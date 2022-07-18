@@ -36,6 +36,8 @@ class DisplayConfigurationPanel(CascadeVisualizerPanel):
         for (name, value) in properties.display_configuration:
             row = column.row()
             row.prop(context.scene, name)
+    
+        column.label(text=f"Nozzle Count: {context.scene.nozzle_count}")
 
 class RenderingOptionsPanel(CascadeVisualizerPanel):
     bl_idname = 'VIEW3D_PT_cascade_visualizer_rendering'

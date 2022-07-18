@@ -2,11 +2,11 @@ import bpy
 from . import scene_manager, cascade_visualizer
 
 display_configuration = [
-    ('display_width_mm', bpy.props.IntProperty(name='Width [X] (mm)', default=120, min=0, update=scene_manager.redraw_bounding_box)),
-    ('display_depth_mm', bpy.props.IntProperty(name='Depth [Y] (mm)', default=80, min=0, update=scene_manager.redraw_bounding_box)),
+    ('display_width_mm', bpy.props.IntProperty(name='Width [X] (mm)', default=150, min=0, update=scene_manager.redraw_bounding_box)),
+    ('display_depth_mm', bpy.props.IntProperty(name='Depth [Y] (mm)', default=100, min=0, update=scene_manager.redraw_bounding_box)),
     ('display_height_mm', bpy.props.IntProperty(name='Height [Z] (mm)', default=100, min=0, update=scene_manager.redraw_bounding_box)),
-    ('display_width_nozzle_spacing_mm', bpy.props.IntProperty(name='Width Nozzle Spacing (mm)', default=8, min=0)),
-    ('display_depth_nozzle_spacing_mm', bpy.props.IntProperty(name='Depth Nozzle Spacing (mm)', default=8, min=0)),
+    ('display_width_nozzle_spacing_mm', bpy.props.IntProperty(name='Width Nozzle Spacing (mm)', default=5, min=0, update=scene_manager.update_nozzle_count)),
+    ('display_depth_nozzle_spacing_mm', bpy.props.IntProperty(name='Depth Nozzle Spacing (mm)', default=5, min=0, update=scene_manager.update_nozzle_count)),
     ('display_minimum_droplet_length_mm', bpy.props.FloatProperty(name='Minimum Droplet Length (mm)', default=2, min=0))
 ]
 

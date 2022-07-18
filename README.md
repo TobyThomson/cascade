@@ -28,7 +28,7 @@ Just have a play. You'll work it out. Features are limited at the time of writin
 * [] Clean up code a bit
 * [] Implement the "Bake CSV" and "Load CSV" fetaures
 * [] Fix bug encounted whern trying to disable the addon before having used it to generate any droplets
-* [] Add a field which shows how many nozzels would be required for the given configuration
-* [] Update default parameters to something more realistic
+* [x] Add a field which shows how many nozzels would be required for the given configuration
+* [x] Update default parameters to something more realistic
 * [x] Fix name of plugin as shown in Blender's toolbar
 * [x] Remove excessive panels

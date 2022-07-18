@@ -54,6 +54,8 @@ def setup_scene(scene):
             area.tag_redraw()
 
 def register():
+    bpy.types.Scene.nozzle_count = bpy.props.IntProperty(name="nozzle_count", default=0)
+
     properties.set_attributes()
     
     for cascade_visualizer_class in cascade_visualizer_classes:
@@ -70,3 +72,5 @@ def unregister():
         bpy.utils.unregister_class(cascade_visualizer_class)
     
     scene_manager.remove_bounding_box(None, bpy.context)
+
+    del bpy.types.Scene.nozzle_count
