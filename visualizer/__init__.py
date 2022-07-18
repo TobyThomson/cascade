@@ -33,8 +33,6 @@ cascade_visualizer_classes = [
     menu.BakeCSVOperator,
     menu.LoadCSVOperator,
     menu.DisplayConfigurationPanel,
-    menu.DisplayDimensionsPanel,
-    menu.DisplaySpacingPanel,
     menu.RenderingOptionsPanel,
     menu.ActionsPanel
 ]
