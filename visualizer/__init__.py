@@ -1,32 +1,34 @@
-# Make cascade-visualizer the root module name, (if visualizer dir not exactly named "cascade-visualizer")
-if __name__ != "cascade-visualizer":
-    sys.modules["cascade-visualizer"] = sys.modules[__name__]
+import sys
+
+# Make cascade_visualizer the root module name, (if visualizer dir not exactly named "cascade_visualizer")
+if __name__ != "cascade_visualizer":
+    sys.modules["cascade_visualizer"] = sys.modules[__name__]
 
 # Check if this add-on is being reloaded
 if "bpy" not in locals():
-    from cascade-visualizer import properties, menu, droplet_generation, scene_manager
+    from cascade_visualizer import properties, menu, cascade_visualizer, scene_manager
 
 else:
     import importlib
 
     properties = importlib.reload(properties)
     menu = importlib.reload(menu)
-    droplet_generation = importlib.reload(droplet_generation)
+    cascade_visualizer = importlib.reload(cascade_visualizer)
     scene_manager = importlib.reload(scene_manager)
 
 import bpy
 from bpy.app.handlers import persistent
 
 bl_info = {
-    'name': 'cascade-visualizer',
+    'name': 'Cascade Visualizer',
     'blender': (3, 0, 0),
     'category': 'Animation',
     'version': (0, 0, 1),
     'author': 'Toby Thomson',
-    'description': 'Simulates and generate animations for the "cascade" display system',
+    'description': 'Simulates and generate animations for the cascade display system',
 }
 
-rainman_classes = [
+cascade_visualizer_classes = [
     scene_manager.DeleteOverride,
     menu.BakeCSVOperator,
     menu.LoadCSVOperator,
@@ -56,17 +58,17 @@ def setup_scene(scene):
 def register():
     properties.set_attributes()
     
-    for rainman_class in rainman_classes:
-        bpy.utils.register_class(rainman_class)
+    for cascade_visualizer_class in cascade_visualizer_classes:
+        bpy.utils.register_class(cascade_visualizer_class)
     
     bpy.app.handlers.depsgraph_update_pre.append(setup_scene)
 
 def unregister():
-    bpy.app.handlers.depsgraph_update_pre.remove(droplet_generation.render_droplets)
+    bpy.app.handlers.depsgraph_update_pre.remove(cascade_visualizer.render_droplets)
     
     properties.reset_attributes()
 
-    for rainman_class in rainman_classes:
-        bpy.utils.unregister_class(rainman_class)
+    for cascade_visualizer_class in cascade_visualizer_classes:
+        bpy.utils.unregister_class(cascade_visualizer_class)
     
     scene_manager.remove_bounding_box(None, bpy.context)

@@ -2,7 +2,7 @@ import bpy
 import bmesh
 from bpy.props import BoolProperty
 
-bounding_box_object_name = 'rainman_bounding_box'
+bounding_box_object_name = 'cascade_visualizer_bounding_box'
 
 bpy.types.Object.protected = BoolProperty(name='protected', default=False)
 

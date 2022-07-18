@@ -1,5 +1,5 @@
 import bpy
-from . import scene_manager, droplet_generation
+from . import scene_manager, cascade_visualizer
 
 # "Display Configuration" Properties
 display_dimensions = [
@@ -20,7 +20,7 @@ rendering = [
     ('rendering_raycast_depth_multiplier', bpy.props.FloatProperty(name='Raycast Depth Multiplier', default=2, min=0)),
     ('rendering_droplet_colour', bpy.props.FloatVectorProperty(name='Droplet Colour', size=4, subtype="COLOR", default=(0.0, 0.0, 1.0, 0.7))),
     ('rendering_bounding_box', bpy.props.BoolProperty(name='Show Display Bounding Box?', default=True, update=scene_manager.toggle_bounding_box_visible)),
-    ('rendering_live', bpy.props.BoolProperty(name='Live Update?', default=False, update=droplet_generation.register_droplet_handler))
+    ('rendering_live', bpy.props.BoolProperty(name='Live Update?', default=False, update=cascade_visualizer.register_droplet_handler))
 ]
 
 all_properties = display_dimensions + display_spacing + display_droplet_size + rendering

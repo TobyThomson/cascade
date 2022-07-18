@@ -63,8 +63,6 @@ def render_droplets(scene):
 
     bpy.app.handlers.depsgraph_update_pre.remove(render_droplets)
 
-    #then = time.time()
-
     try:
         bpy.types.SpaceView3D.draw_handler_remove(draw_handler, 'WINDOW')
 
@@ -96,9 +94,6 @@ def render_droplets(scene):
         batch.draw(shader)
 
     draw_handler = bpy.types.SpaceView3D.draw_handler_add(draw, (), 'WINDOW', 'POST_VIEW')
-
-    #now = time.time()
-    #print(f'EXECUTION TIME: {now - then} s')
 
     bpy.app.handlers.depsgraph_update_pre.append(render_droplets)
 
