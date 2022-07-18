@@ -28,7 +28,7 @@ class cascade_visualizerPanel(bpy.types.Panel):
 class DisplayConfigurationPanel(cascade_visualizerPanel):
     bl_idname = 'VIEW3D_PT_cascade_visualizer_display'
     bl_label = "Display Configuration"
-    bl_category = 'cascade_visualizer'
+    bl_category = 'Cascade Visualizer'
 
     def draw(self, context):
         column = self.layout.column()
@@ -62,7 +62,7 @@ class DisplaySpacingPanel(cascade_visualizerPanel):
 class RenderingOptionsPanel(cascade_visualizerPanel):
     bl_idname = 'VIEW3D_PT_cascade_visualizer_rendering'
     bl_label = "Rendering Options"
-    bl_category = 'cascade_visualizer'
+    bl_category = 'Cascade Visualizer'
 
     def draw(self, context):
         column = self.layout.column()
@@ -74,7 +74,7 @@ class RenderingOptionsPanel(cascade_visualizerPanel):
 class ActionsPanel(cascade_visualizerPanel):
     bl_idname = 'VIEW3D_PT_cascade_visualizer_actions'
     bl_label = "Actions"
-    bl_category = 'cascade_visualizer'
+    bl_category = 'Cascade Visualizer'
 
     def draw(self, context):
         column = self.layout.column()
